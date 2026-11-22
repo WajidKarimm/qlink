@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:">
+  <title>QLink</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="card">
+    <button class="close" id="close" type="button" aria-label="Hide Link Vault" title="Hide (Esc)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <header class="head">
+      <div class="brand">
+        <span class="chain" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>
+        </span>
+        <span class="vr" aria-hidden="true"></span>
+        <div>
+          <h1>Save <span>Link</span></h1>
+          <p>Paste a link and save it instantly</p>
+        </div>
+      </div>
+
+      <form id="add" class="paste" autocomplete="off">
+        <svg class="pico" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>
+        <label class="sr" for="q">Paste a link to save it, or type to search your links</label>
+        <input id="q" type="text" spellcheck="false" placeholder="Paste link here&hellip;">
+      </form>
+
+      <button class="save" id="save" type="button" aria-label="Save link" title="Save link (Enter)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h10a1.5 1.5 0 0 1 1.5 1.5v15.5L12 16.2l-6.5 4.3V5A1.5 1.5 0 0 1 7 3.5z"/></svg>
+      </button>
+    </header>
+
+    <main class="stage"><ul id="list" class="grid"></ul></main>
+
+    <footer class="foot">
+      <span class="count">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h10a1.5 1.5 0 0 1 1.5 1.5v15.5L12 16.2l-6.5 4.3V5A1.5 1.5 0 0 1 7 3.5z"/></svg>
+        <span id="count"></span>
+      </span>
+      <span class="keys"><kbd>Enter</kbd> copy <i>&middot;</i> <kbd>Ctrl</kbd><kbd>Enter</kbd> open <i>&middot;</i> <kbd>Esc</kbd> hide</span>
+      <span class="quick">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6L13 3z"/></svg>
+        Quick Access <kbd id="hotkey"></kbd>
+      </span>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"><span></span></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
